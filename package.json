@@ -1,0 +1,77 @@
+{
+  "name": "@davesag/ERC884-reference-implementation",
+  "version": "1.0.5",
+  "description": "An interface definition, and reference implementation for the ERC-884 token.",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test",
+    "contracts": "contracts"
+  },
+  "engines": {
+    "node": "11.9.0",
+    "npm": "6.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-mocha": "^5.2.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "faker": "^4.1.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.3",
+    "pify": "^4.0.1",
+    "prettier": "^1.16.4",
+    "solhint": "^1.5.1",
+    "solidity-coverage": "^0.5.11",
+    "truffle-hdwallet-provider": "^1.0.6"
+  },
+  "scripts": {
+    "prettier": "prettier --single-quote --no-semi --write '**/*.{js,json}'",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "test": "truffle test",
+    "test:cov": "solidity-coverage",
+    "lint:sol": "solhint contracts/**/*.sol",
+    "lint:js": "eslint test/**/*.js",
+    "deploy": "rm -rf build ; truffle deploy",
+    "deploy:mainnet": "rm -rf build ; truffle deploy --network mainnet",
+    "deploy:ropsten": "rm -rf build ; truffle deploy --network ropsten",
+    "deploy:rinkeby": "rm -rf build ; truffle deploy --network rinkeby"
+  },
+  "lint-staged": {
+    "**/*.{js,json}": [
+      "prettier --single-quote --no-semi --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davesag/ERC884-reference-implementation.git"
+  },
+  "keywords": [
+    "ERC-20",
+    "Ethereum",
+    "DGCL",
+    "token",
+    "share"
+  ],
+  "author": "Dave Sag <davesag@gmail.com>",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davesag/ERC884-reference-implementation/issues"
+  },
+  "homepage": "https://github.com/davesag/ERC884-reference-implementation#readme",
+  "dependencies": {
+    "openzeppelin-solidity": "^1.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
